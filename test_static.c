@@ -14,4 +14,5 @@ int main()
   matrix_print(b);
   printf("\n a+b:");
   matrix_print(add(a,b));
+  transpose(a);
 }

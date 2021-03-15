@@ -1,7 +1,7 @@
 /* File: matrix_dynamic.c */
 #include "matrix_dynamic.h"
 
-matrix create_empty(int rdim, int cdim)
+matrix create_empty_dynamic(int rdim, int cdim)
 {
   int i;
   matrix result;
@@ -14,7 +14,7 @@ matrix create_empty(int rdim, int cdim)
   return result;
 }
 
-matrix create_initval(int rdim, int cdim, T val)
+matrix create_initval_dynamic(int rdim, int cdim, T val)
 {
   int i,j;
   matrix result;
@@ -31,7 +31,7 @@ matrix create_initval(int rdim, int cdim, T val)
   return result;
 }
 
-matrix create_initvals(int rdim, int cdim, T* initval)
+matrix create_initvals_dynamic(int rdim, int cdim, T* initval)
 {
   int i,j;
   matrix result;
@@ -48,7 +48,7 @@ matrix create_initvals(int rdim, int cdim, T* initval)
   return result;
 }
 
-void destroy(matrix m)
+void destroy_dynamic(matrix m)
 {
   int i;
   for (i=0; i<m.row_dim; i++)
@@ -57,17 +57,17 @@ void destroy(matrix m)
   free(&m);
 }
 
-T retrieve(int row, int col, matrix m)
+T retrieve_dynamic(int row, int col, matrix m)
 {
   return(m.element[row][col]);
 }
 
-void assign(int row, int col, matrix* m, T elm)
+void assign_dynamic(int row, int col, matrix* m, T elm)
 {
   m->element[row][col] = elm;
 }
 
-void matrix_print(matrix m)
+void matrix_print_dynamic(matrix m)
 {
   int i,j;
   printf("\n");
@@ -79,47 +79,47 @@ void matrix_print(matrix m)
   printf("\n");
 }
 
-matrix add(matrix m1, matrix m2)
+matrix add_dynamic(matrix m1, matrix m2)
 {
   int i,j;
   matrix result;
   assert((m1.row_dim == m2.row_dim) && (m1.col_dim == m2.col_dim));
-  result = create_empty(m1.row_dim, m2.col_dim);
+  result = create_empty_dynamic(m1.row_dim, m2.col_dim);
   for (i=0; i<m1.row_dim; i++)
     for (j=0; j<m1.col_dim; j++)
       result.element[i][j] = m1.element[i][j] + m2.element[i][j];
   return result; 
 }
 
-matrix subtract(matrix m1, matrix m2)
+matrix subtract_dynamic(matrix m1, matrix m2)
 {
   int i,j;
   matrix result;
   assert((m1.row_dim == m2.row_dim) && (m1.col_dim == m2.col_dim));
-  result = create_empty(m1.row_dim, m2.col_dim);
+  result = create_empty_dynamic(m1.row_dim, m2.col_dim);
   for (i=0; i<m1.row_dim; i++)
     for (j=0; j<m1.col_dim; j++)
       result.element[i][j] = m1.element[i][j] - m2.element[i][j];
   return result; 
 }
 
-matrix negate(matrix m)
+matrix negate_dynamic(matrix m)
 {
   int i,j;
   matrix result;
-  result = create_empty(m.row_dim, m.col_dim);
+  result = create_empty_dynamic(m.row_dim, m.col_dim);
   for (i=0; i<m.row_dim; i++)
     for (j=0; j<m.col_dim; j++)
       result.element[i][j] = -m.element[i][j];
   return result; 
 }
 
-matrix multiply(matrix m1, matrix m2)
+matrix multiply_dynamic(matrix m1, matrix m2)
 {
   int i,j,k;
   matrix result;
   assert(m1.col_dim == m2.row_dim);
-  result = create_empty(m1.row_dim, m2.col_dim);
+  result = create_empty_dynamic(m1.row_dim, m2.col_dim);
   for (i=0; i<m1.row_dim; i++)
     for (j=0; j<m2.col_dim; j++) {
       result.element[i][j] = 0;
@@ -129,18 +129,18 @@ matrix multiply(matrix m1, matrix m2)
   return result; 
 }
 
-matrix scalar_multiply(T scalar, matrix m)
+matrix scalar_multiply_dynamic(T scalar, matrix m)
 {
   int i,j;
   matrix result;
-  result = create_empty(m.row_dim, m.col_dim);
+  result = create_empty_dynamic(m.row_dim, m.col_dim);
   for (i=0; i<m.row_dim; i++)
     for (j=0; j<m.col_dim; j++)
       result.element[i][j] = scalar * m.element[i][j];
   return result; 
 }
 
-void equate(matrix* m1, matrix* m2)
+void equate_dynamic(matrix* m1, matrix* m2)
 {
   int i,j;
   assert((m1->row_dim == m2->row_dim) && (m1->col_dim == m2->col_dim));
@@ -148,11 +148,11 @@ void equate(matrix* m1, matrix* m2)
     for (j=0; j<m1->col_dim; j++)
       m2->element[i][j] = m1->element[i][j];
 }
-matrix transpose(matrix m)
+matrix transpose_dynamic(matrix m)
 {
 	int i,j;
 	matrix result;
- 	result = create_empty(m.row_dim, m.col_dim);
+ 	result = create_empty_dynamic(m.row_dim, m.col_dim);
 	for (i=0; i<m.row_dim; ++i){
 		for (j=0; j<m.col_dim; ++j){
 			result.element[j][i] = m.element[i][j];

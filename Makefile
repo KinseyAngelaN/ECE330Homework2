@@ -1,8 +1,5 @@
-output: test_static.o test_dynamic.o matrix_dynamic.o matrix_static.o
-	gcc test_static.o test_dynamic.o matrix_static.o matrix_dynamic.o -o output
-
-test_static.o: test_static.c
-	gcc -c test_static.c
+output: test_dynamic.o matrix_dynamic.o matrix_static.o
+	gcc test_dynamic.o matrix_static.o matrix_dynamic.o -o output
 
 test_dynamic.o: test_dynamic.c
 	gcc -c test_dynamic.c

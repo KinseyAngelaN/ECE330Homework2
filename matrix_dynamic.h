@@ -14,20 +14,20 @@ typedef struct {
 } matrix;
 
 /* function prototypes */
-matrix create_empty(int rdim, int cdim);
-matrix create_initval(int rdim, int cdim, T val);
-matrix create_initvals(int rdim, int cdim, T* initval);
-void destroy(matrix);
-void matrix_print(matrix);
-T retrieve(int row, int col, matrix m);  /* retrieve an element from m */
-void assign(int row, int col, matrix*, T val); /* assign a value to an element of m */
-void equate(matrix* m1, matrix* m2);  /* m1 = m2 */
-matrix add(matrix, matrix);
-matrix subtract(matrix, matrix);
-matrix negate(matrix);
-matrix multiply(matrix, matrix);
-matrix scalar_multiply(T scalar, matrix);
-matrix transpose(matrix);
+matrix create_empty_dynamic(int rdim, int cdim);
+matrix create_initval_dynamic(int rdim, int cdim, T val);
+matrix create_initvals_dynamic(int rdim, int cdim, T* initval);
+void destroy_dynamic(matrix);
+void matrix_print_dynamic(matrix);
+T retrieve_dynamic(int row, int col, matrix m);  /* retrieve an element from m */
+void assign_dynamic(int row, int col, matrix*, T val); /* assign a value to an element of m */
+void equate_dynamic(matrix* m1, matrix* m2);  /* m1 = m2 */
+matrix add_dynamic(matrix, matrix);
+matrix subtract_dynamic(matrix, matrix);
+matrix negate_dynamic(matrix);
+matrix multiply_dynamic(matrix, matrix);
+matrix scalar_multiply_dynamic(T scalar, matrix);
+matrix transpose_dynamic(matrix);
 /* remaining function prototypes not shown */
 
 #endif
