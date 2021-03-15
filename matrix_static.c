@@ -1,5 +1,5 @@
 /* File: matrix_static.c */
-#include "matrix.h"
+#include "matrix_static.h"
 
 matrix create_empty(int rdim, int cdim)
 {
@@ -131,4 +131,15 @@ void equate(matrix* m1, matrix* m2)
   for (i=0; i<m1->row_dim; i++)
     for (j=0; j<m1->col_dim; j++)
       m2->element[i][j] = m1->element[i][j];
+}
+
+matrix transpose(matrix m){
+	int i,j;
+	matrix result;
+	for (i=0; i<m.row_dim; ++i){
+		for (j=0; j<m.col_dim; ++j){
+			result.element[j][i] = m.element[i][j];
+		}
+	}
+	return result;
 }
