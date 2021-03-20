@@ -5,7 +5,10 @@
 #include <stdlib.h>
 #include <assert.h>
 #define FORMAT "%8.3lf"
+#define MAX_ROW 10
+#define MAX_COL 10
 
+//dynamic
 typedef double T;
 
 typedef struct {

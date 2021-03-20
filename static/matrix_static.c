@@ -136,6 +136,7 @@ void equate(matrix* m1, matrix* m2)
 matrix transpose(matrix m){
 	int i,j;
 	matrix result;
+	result = create_empty(m.col_dim, m.row_dim);
 	for (i=0; i<m.row_dim; ++i){
 		for (j=0; j<m.col_dim; ++j){
 			result.element[j][i] = m.element[i][j];

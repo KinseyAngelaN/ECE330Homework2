@@ -160,4 +160,3 @@ matrix transpose_dynamic(matrix m)
 	}
 	return result;
 }
-
